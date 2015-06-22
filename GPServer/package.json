@@ -1,0 +1,10 @@
+{
+  "name": "GPServer",
+  "version": "0.0.0",
+  "description": "GPServer",
+  "main": "app.js",
+  "author": {
+    "name": "Tian",
+    "email": ""
+  }
+}
