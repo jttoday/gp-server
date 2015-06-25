@@ -1,4 +1,7 @@
-﻿
+﻿var Player = require('./player.js');
+var Room = require('./room.js');
+
+
 function __addNewPlayer(player){
     this.players.push(player);
 }
@@ -13,3 +16,5 @@ function Game(){
     this.players = [];
 
 }
+
+var game = new Game();
