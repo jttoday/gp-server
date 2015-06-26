@@ -3,9 +3,11 @@ function __addCard(card){
     this.cards.push(card);
 }
 
-function Player(id, modelId, speed, might, sanity, knowledge){
-    this.id = id;
+function Player(clientId, modelId, position, status){
+    this.clientId = clientId;
     this.modelId = modelId;
+    this.pos = position;
+    this.status = status;
     this.speed = speed;
     this.might = might;
     this.sanity = sanity;
