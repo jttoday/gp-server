@@ -17,7 +17,9 @@ function __leavePlayer(player){
     }
 }
 
-function Room(){
+function Room(id){
+	this.roomId = id;
+	this.rotation = 0;
     this.players = [];
     this.addPlayer = __addPlayer;
     this.leavePlayer = __leavePlayer;
