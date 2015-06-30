@@ -2,9 +2,12 @@
 	port : 3370,
 	host : '127.0.0.1',
 	msgType : {
-		CreateGame : 'createGame',
-		JoinGame : 'joinGame',
-
+		JoinGame : 'JoinGame',
+		ChangeLevel : 'ChangeCharacterLevel',
+		CharacterMove : "CharacterMove",
+		AddCharacter : "AddCharacter",
+		AddRoom : "AddRoom",
+		Poll :"Poll"
 	},
 
 };

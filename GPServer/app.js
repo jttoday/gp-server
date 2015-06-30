@@ -1,11 +1,16 @@
 ﻿var net = require("net");
 var config = require('./config.js');
+var router = require('./router.js');
 var server = net.createServer(function (sock) {
 	console.log('Connected to :' + sock.remoteAddress + ':' + sock.remotePort);
 	sock.on('data', function (data) {
-		console.log("DATA", sock.remoteAddress + ':' + data);
+		router.route(data);
 	});
 	sock.on('close', function (data) {
+		console.log("Colsed!");
+	});
+	sock.on('error', function (err) {
+		console.log(err);
 	});
 });
 

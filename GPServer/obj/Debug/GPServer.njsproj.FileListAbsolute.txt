@@ -1,0 +1,2 @@
+C:\Users\Edward\Desktop\gp-server\GPServer\obj\Debug\GPServer.njsprojResolveAssemblyReference.cache
+C:\Users\Edward\Desktop\gp-server\GPServer\bin\Microsoft.NodejsTools.WebRole.dll

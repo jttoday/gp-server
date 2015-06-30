@@ -85,13 +85,16 @@ function __convertMap(originMap){
 
 //------------- public method ---------------//
 
-function __addPlayer(pos, player) {
-	this.map[pos.level][pos.x][pos.y].addPlayer(player);
+function __addPlayer(clientId, player) {
+    var pos = player.pos;
+	this.getRoom(pos).addPlayer(player);
 	this.players.push(player);
 }
 
-function __addRoom(pos, room) {
-	this.map[pos.level][pos.x][pos.y] = room;
+function __addRoom(clientId, room) {
+    var pos = room.pos;
+    this.map[pos.level][pos.x][pos.y] = room;
+    this.rooms.push(room);
 }
 
 function __changePlayerStatus(clientId, status) {
@@ -134,7 +137,8 @@ function __findPath(start, end) {
 	return __minPath(path);
 }
 
-function __playerMoveTo(player, endPos) {
+function __playerMoveTo(cliendId, endPos) {
+    var player = this.findPlayerById(clientId);
 	var currentPos = player.pos;
 	this.getRoom(currentPos).leavePlayer(player);
 	this.getRoom(endPos).addPlayer(player);
@@ -154,6 +158,10 @@ function __findPlayerById(clientId) {
 	}
 }
 
+function __poll(clientId){
+
+}
+
 function __changeRoomRotation(pos, rotation) {
 	var room = this.getRoom(pos);
 	room.rotation = rotation;
@@ -161,7 +169,8 @@ function __changeRoomRotation(pos, rotation) {
 
 function Game(width, height){
     this.players = [];
-	this.map = [];
+    this.map = [];
+    this.rooms = [];
 	for (var level = 0; level < 3; ++level) {
 		this.map[level] = [];
 		for (var i = 0; i < width; ++i) {
@@ -169,6 +178,8 @@ function Game(width, height){
 		}
 	}
 }
+
+module.exports = Game;
 
 Game.prototype.__findPathToStair = __findPathToStair;
 Game.prototype.__stairPos = __stairPos;
@@ -181,3 +192,4 @@ Game.prototype.playerMoveTo = __playerMoveTo;
 Game.prototype.getRoom = __getRoom;
 Game.prototype.changeRoomRotation = __changeRoomRotation;
 Game.prototype.findPlayerById = __findPlayerById;
+Game.prototype.poll = __poll;
