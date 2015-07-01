@@ -53,6 +53,29 @@ namespace GPClient
             this.x = x;
             this.y = y;
         }
+
+		public PositionData(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+            this.level = -1;
+        }
+
+        // override object.Equals
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            PositionData rhs = (PositionData)obj;
+            return this.x == rhs.x && this.y == rhs.y && this.level == rhs.level;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.x.GetHashCode() ^ this.y.GetHashCode();
+        }
 	}
 
 	public class CharacterInfo
@@ -82,7 +105,9 @@ namespace GPClient
     {
         public int roomId;
         public int rotation;
+        public Boolean[] openDoors;
         public PositionData pos;
+
         public RoomInfo()
         {
 
@@ -194,18 +219,18 @@ namespace GPClient
             ns.Flush();
         }
 
-        static void Main(String[] args)
-        {
-            Client client = new Client();
-            client.connect();
-            PositionData pos = new PositionData(0, 2, 3);
-            CharacterLevelData level = new CharacterLevelData(10, 20, 30, 40);
-            int[] card = { 1, 2, 3, 4 };
-            CharacterInfo info = new CharacterInfo(0, "hello", pos, level, card);
-            client.addCharacter(info);
-            Console.ReadLine();
-            client.close();
-        }
+        //static void Main(String[] args)
+        //{
+        //    Client client = new Client();
+        //    client.connect();
+        //    PositionData pos = new PositionData(0, 2, 3);
+        //    CharacterLevelData level = new CharacterLevelData(10, 20, 30, 40);
+        //    int[] card = { 1, 2, 3, 4 };
+        //    CharacterInfo info = new CharacterInfo(0, "hello", pos, level, card);
+        //    client.addCharacter(info);
+        //    Console.ReadLine();
+        //    client.close();
+        //}
 
 
     }

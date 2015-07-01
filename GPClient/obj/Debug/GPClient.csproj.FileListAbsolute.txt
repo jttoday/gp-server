@@ -1,0 +1,7 @@
+C:\Users\Edward\Desktop\gp-server\GPClient\bin\Debug\GPClient.exe.config
+C:\Users\Edward\Desktop\gp-server\GPClient\obj\Debug\GPClient.csprojResolveAssemblyReference.cache
+C:\Users\Edward\Desktop\gp-server\GPClient\bin\Debug\GPClient.exe
+C:\Users\Edward\Desktop\gp-server\GPClient\bin\Debug\GPClient.pdb
+C:\Users\Edward\Desktop\gp-server\GPClient\bin\Debug\LitJson.dll
+C:\Users\Edward\Desktop\gp-server\GPClient\obj\Debug\GPClient.exe
+C:\Users\Edward\Desktop\gp-server\GPClient\obj\Debug\GPClient.pdb

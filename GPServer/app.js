@@ -4,7 +4,10 @@ var router = require('./router.js');
 var server = net.createServer(function (sock) {
 	console.log('Connected to :' + sock.remoteAddress + ':' + sock.remotePort);
 	sock.on('data', function (data) {
-		router.route(data);
+		var result = router.route(data);
+		if (result) {
+			sock.write(result);
+		}
 	});
 	sock.on('close', function (data) {
 		console.log("Colsed!");

@@ -10,28 +10,28 @@ function __route(raw) {
     var result = null;
 	console.log("ParsedData is :");
 	console.log(parseData);
-	//switch (parsedRaw.msgType) {
- //       case config.msgType.JoinGame:
- //           break;
- //       case config.msgType.AddCharacter:
- //           game.addPlayer(clientId, parseData);
- //           break;
- //       case config.msgType.AddRoom:
- //           game.addRoom(clientId, parseData);
- //           break;
- //       case config.msgType.ChangeLevel:
- //           game.changePlayerStatus(clientId, parseData);
- //           break;
- //       case config.msgType.CharacterMove:
- //           game.playerMoveTo(clientId, parseData);
- //           break;
- //       case config.msgType.Poll:
- //           result = game.poll(clientId);
- //           break;
-	//	default:
-	//		break;
+	switch (parsedRaw.msgType) {
+        case config.msgType.JoinGame:
+            break;
+        case config.msgType.AddCharacter:
+            game.addPlayer(clientId, parseData);
+            break;
+        case config.msgType.AddRoom:
+            game.addRoom(clientId, parseData);
+            break;
+        case config.msgType.ChangeLevel:
+            game.changePlayerStatus(clientId, parseData);
+            break;
+        case config.msgType.CharacterMove:
+            game.playerMoveTo(clientId, parseData);
+            break;
+        case config.msgType.Poll:
+            result = game.poll(clientId);
+            break;
+		default:
+			break;
 
- //   }
+    }
     return result;
 }
 
